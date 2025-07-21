@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Website</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+            cursor: grab;
+        }
+        /* Style for required fields */
+        label.required::after {
+            content: ' *';
+            color: #ef4444; /* Red color for asterisk */
+        }
+        /* Initially hide all sections except the first one (handled by JS) */
+        section:not(#home) {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="bg-blue-700 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <!-- Placeholder for government logo -->
+                <img src="https://placehold.co/40x40/ffffff/000000?text=GOV" alt="Government Logo" class="mr-3 rounded-full">
+                <h1 class="text-2xl font-bold">Government Services</h1>
+            </div>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-lg">
+                    <li><a href="javascript:void(0);" onclick="showSection('home')" class="hover:text-blue-200 transition duration-300">Home</a></li>
+                    <li><a href="javascript:void(0);" onclick="showSection('services-page')" class="hover:text-blue-200 transition duration-300">Services</a></li>
+                    <li><a href="javascript:void(0);" onclick="showSection('about-us')" class="hover:text-blue-200 transition duration-300">About Us</a></li>
+                    <li><a href="javascript:void(0);" onclick="showSection('contact-us')" class="hover:text-blue-200 transition duration-300">Contact</a></li>
+                    <li><a href="javascript:void(0);" onclick="showSection('faqs')" class="hover:text-blue-200 transition duration-300">FAQs</a></li>
+                    <li><a href="javascript:void(0);" onclick="showSection('complaint-suggestion')" class="hover:text-blue-200 transition duration-300">Complaint/Suggestion</a></li>
+                    <li><a href="javascript:void(0);" onclick="showSection('user-dashboard')" class="hover:text-blue-200 transition duration-300">Dashboard</a></li>
+                    <li><a href="javascript:void(0);" onclick="showSection('login-register')" class="bg-blue-600 px-4 py-2 rounded-full hover:bg-blue-800 transition duration-300 shadow-md">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Home) -->
+    <section id="home" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 text-center shadow-lg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Your Gateway to Public Services</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Access essential government services, information, and resources easily and efficiently.
+            </p>
+            <a href="javascript:void(0);" onclick="showSection('services-page')" class="bg-white text-blue-700 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                Explore Services
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Overview Section (Refined for Landing Page) -->
+    <section id="services-overview" class="container mx-auto py-16 px-4">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">Key Services Highlights</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Service Card 1: Citizen Services -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                    <!-- Icon for Citizen Services (User Group) -->
+                    <svg class="w-10 h-10 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857M17 20v-2c0-.185-.015-.37-.04-.552m0 0A3 3 0 0014.854 10.15L11 12.5m-8.5-6.5h15m-12 0v-2a3 3 0 00-5.356-1.857M3 12v-2c0-.185.015-.37.04-.552m0 0A3 3 0 016.146 10.15L10 12.5m-8.5 6.5h15m-12 0v-2a3 3 0 00-5.356-1.857M3 12v-2c0-.185.015-.37.04-.552m0 0A3 3 0 016.146 10.15L10 12.5"></path></svg>
+                    <h4 class="text-xl font-semibold text-gray-900">Citizen Services</h4>
+                </div>
+                <p class="text-gray-600">Access essential services for individuals, including ID, permits, and social benefits.</p>
+                <a href="javascript:void(0);" onclick="showSection('services-page')" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">Explore Citizen Services &rarr;</a>
+            </div>
+
+            <!-- Service Card 2: Business Services -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                    <!-- Icon for Business Services (Briefcase) -->
+                    <svg class="w-10 h-10 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.28-8.455-3.245m16.91 0c.75.056 1.44.385 2.02.915.58.53.91 1.252.91 2.02v5.5c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-5.5c0-.768.33-1.49.91-2.02.58-.53 1.27-.859 2.02-.915m16.91 0L12 10l-9.455 3.255"></path></svg>
+                    <h4 class="text-xl font-semibold text-gray-900">Business Services</h4>
+                </div>
+                <p class="text-gray-600">Find resources for business registration, licenses, and corporate tax information.</p>
+                <a href="javascript:void(0);" onclick="showSection('services-page')" class="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium transition duration-300">Explore Business Services &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section id="latest-news" class="bg-gray-100 py-16 px-4">
+        <div class="container mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">Latest News & Updates</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- News Article 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row">
+                    <img src="https://placehold.co/200x150/e0e0e0/333333?text=News+Image+1" alt="News Image" class="w-full md:w-1/3 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h4 class="text-xl font-semibold mb-2 text-gray-900">New Policy on Environmental Protection Announced</h4>
+                        <p class="text-gray-600 text-sm mb-4">Published on July 21, 2025</p>
+                        <p class="text-gray-700 mb-4">The government has introduced a comprehensive new policy aimed at bolstering environmental protection efforts across the nation...</p>
+                        <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-800 font-medium transition duration-300">Read More &rarr;</a>
+                    </div>
+                </div>
+                <!-- News Article 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row">
+                    <img src="https://placehold.co/200x150/d0d0d0/333333?text=News+Image+2" alt="News Image" class="w-full md:w-1/3 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h4 class="text-xl font-semibold mb-2 text-gray-900">Digital Transformation Initiative Progress Report</h4>
+                        <p class="text-gray-600 text-sm mb-4">Published on July 18, 2025</p>
+                        <p class="text-gray-700 mb-4">Significant progress has been made in the ongoing digital transformation initiative, with several key milestones achieved...</p>
+                        <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-800 font-medium transition duration-300">Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page (Full Details with Icons) -->
+    <section id="services-page" class="container mx-auto py-16 px-4 bg-white rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">All Government Services</h3>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+            Explore the full range of services provided by the government, categorized for your convenience.
+        </p>
+
+        <!-- Citizen Services Category -->
+        <div class="mb-12">
+            <h4 class="text-2xl font-semibold text-blue-800 mb-6 text-center">For Citizens</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Service Item: ID & Passport Applications (Links to General Application Form) -->
+                <a href="javascript:void(0);" onclick="showSection('general-application-form')" class="flex flex-col items-center justify-center p-4 bg-blue-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-blue-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0H9m7 0h-1M9 11h4m-4 4h4m-4 0h.01M16 16h.01"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">ID & Passport Applications</span>
+                </a>
+                <!-- Service Item: Birth/Death Certificates -->
+                <a href="javascript:void(0);" onclick="showSection('general-application-form')" class="flex flex-col items-center justify-center p-4 bg-blue-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-blue-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Birth/Death Certificates</span>
+                </a>
+                <!-- Service Item: Tax Filing & Info -->
+                <a href="javascript:void(0);" onclick="showSection('general-application-form')" class="flex flex-col items-center justify-center p-4 bg-blue-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-blue-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16m-4-4h8M5 12h8m-8 4h8M19 4h-2a2 2 0 00-2 2v10a2 2 0 002 2h2a2 2 0 002-2V6a2 2 0 00-2-2z"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Tax Filing & Information</span>
+                </a>
+                <!-- Service Item: Social Security Benefits -->
+                <a href="javascript:void(0);" onclick="showSection('general-application-form')" class="flex flex-col items-center justify-center p-4 bg-blue-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-blue-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.105 0 2 .895 2 2v2a2 2 0 01-2 2m0 0a2 2 0 00-2 2v2a2 2 0 002 2M5 9a2 2 0 012-2h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2V9z"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Social Security Benefits</span>
+                </a>
+                <!-- Service Item: Voter Registration -->
+                <a href="javascript:void(0);" onclick="showSection('general-application-form')" class="flex flex-col items-center justify-center p-4 bg-blue-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-blue-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2m-2 4h2m-2 4h2m-2 4h2m-2 4h2m-2 4h2m-2 4h2M6 6h2m-2 4h2m-2 4h2m-2 4h2m-2 4h2m-2 4h2m-2 4h2m-2 4h2M12 2a10 10 0 100 20 10 10 0 000-20z"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Voter Registration</span>
+                </a>
+                <!-- Add more citizen services here -->
+            </div>
+        </div>
+
+        <!-- Business Services Category -->
+        <div class="mb-12">
+            <h4 class="text-2xl font-semibold text-green-800 mb-6 text-center">For Businesses</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Service Item: Business Registration (Links to Business Application Form) -->
+                <a href="javascript:void(0);" onclick="showSection('business-registration-form')" class="flex flex-col items-center justify-center p-4 bg-green-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-green-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2m14 0h.01M12 15h.01"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Business Registration</span>
+                </a>
+                <!-- Service Item: Permits & Licenses -->
+                <a href="javascript:void(0);" onclick="showSection('business-registration-form')" class="flex flex-col items-center justify-center p-4 bg-green-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-green-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Permits & Licenses</span>
+                </a>
+                <!-- Service Item: Corporate Tax Services -->
+                <a href="javascript:void(0);" onclick="showSection('business-registration-form')" class="flex flex-col items-center justify-center p-4 bg-green-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-green-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Corporate Tax Services</span>
+                </a>
+                <!-- Service Item: Export/Import Regulations -->
+                <a href="javascript:void(0);" onclick="showSection('business-registration-form')" class="flex flex-col items-center justify-center p-4 bg-green-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-green-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Export/Import Regulations</span>
+                </a>
+                <!-- Service Item: Government Contracts -->
+                <a href="javascript:void(0);" onclick="showSection('business-registration-form')" class="flex flex-col items-center justify-center p-4 bg-green-50 rounded-lg shadow-sm hover:shadow-md transition duration-300 transform hover:-translate-y-1 text-center">
+                    <svg class="w-12 h-12 text-green-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    <span class="text-sm font-medium text-gray-800">Government Contracts</span>
+                </a>
+                <!-- Add more business services here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- General Application Form Page -->
+    <section id="general-application-form" class="container mx-auto py-16 px-4 bg-white rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">General Service Application Form</h3>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+            Please fill out the form below to apply for the selected service. All fields marked with an asterisk (<span class="text-red-500">*</span>) are required.
+        </p>
+
+        <div class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" onsubmit="showSection('payment-page'); return false;">
+                <!-- Personal Information -->
+                <div class="md:col-span-2">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Personal Information</h4>
+                </div>
+                <div>
+                    <label for="ga-full-name" class="block text-sm font-medium text-gray-700 mb-1 required">Full Name</label>
+                    <input type="text" id="ga-full-name" name="ga-full-name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Your Full Name" required>
+                </div>
+                <div>
+                    <label for="ga-dob" class="block text-sm font-medium text-gray-700 mb-1 required">Date of Birth</label>
+                    <input type="date" id="ga-dob" name="ga-dob" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+                </div>
+                <div>
+                    <label for="ga-gender" class="block text-sm font-medium text-gray-700 mb-1 required">Gender</label>
+                    <select id="ga-gender" name="ga-gender" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ga-nid" class="block text-sm font-medium text-gray-700 mb-1 required">National ID Number</label>
+                    <input type="text" id="ga-nid" name="ga-nid" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., 1234567890" required>
+                </div>
+                <div class="md:col-span-2">
+                    <label for="ga-address" class="block text-sm font-medium text-gray-700 mb-1 required">Current Address</label>
+                    <textarea id="ga-address" name="ga-address" rows="3" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Street, City, Post Code" required></textarea>
+                </div>
+
+                <!-- Document Uploads -->
+                <div class="md:col-span-2 mt-6">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Document Uploads</h4>
+                    <p class="text-sm text-gray-600 mb-4">Please upload clear scans or photos of the required documents.</p>
+                </div>
+                <div>
+                    <label for="ga-photo" class="block text-sm font-medium text-gray-700 mb-1 required">Passport-sized Photo</label>
+                    <input type="file" id="ga-photo" name="ga-photo" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" required>
+                </div>
+                <div>
+                    <label for="ga-nid-scan" class="block text-sm font-medium text-gray-700 mb-1 required">National ID Scan</label>
+                    <input type="file" id="ga-nid-scan" name="ga-nid-scan" accept="image/*,.pdf" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" required>
+                </div>
+
+                <div class="md:col-span-2 text-right mt-8">
+                    <button type="submit" class="inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                        Submit Application
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Business Registration Form Page -->
+    <section id="business-registration-form" class="container mx-auto py-16 px-4 bg-white rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">Business Registration Application Form</h3>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+            Please fill out the form below to register your business. All fields marked with an asterisk (<span class="text-red-500">*</span>) are required.
+        </p>
+
+        <div class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" onsubmit="showSection('payment-page'); return false;">
+                <!-- Business Information -->
+                <div class="md:col-span-2">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Business Information</h4>
+                </div>
+                <div>
+                    <label for="br-business-name" class="block text-sm font-medium text-gray-700 mb-1 required">Proposed Business Name</label>
+                    <input type="text" id="br-business-name" name="br-business-name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., My Awesome Business Ltd." required>
+                </div>
+                <div>
+                    <label for="br-business-type" class="block text-sm font-medium text-gray-700 mb-1 required">Business Type</label>
+                    <select id="br-business-type" name="br-business-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md" required>
+                        <option value="">Select Type</option>
+                        <option value="sole-proprietorship">Sole Proprietorship</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="corporation">Corporation</option>
+                        <option value="llc">LLC</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="br-industry" class="block text-sm font-medium text-gray-700 mb-1 required">Industry/Sector</label>
+                    <input type="text" id="br-industry" name="br-industry" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., Retail, IT, Manufacturing" required>
+                </div>
+                <div>
+                    <label for="br-employees" class="block text-sm font-medium text-gray-700 mb-1">Number of Employees (Estimated)</label>
+                    <input type="number" id="br-employees" name="br-employees" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., 5">
+                </div>
+                <div class="md:col-span-2">
+                    <label for="br-address" class="block text-sm font-medium text-gray-700 mb-1 required">Business Address</label>
+                    <textarea id="br-address" name="br-address" rows="3" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Street, City, Post Code" required></textarea>
+                </div>
+
+                <!-- Owner/Director Information -->
+                <div class="md:col-span-2 mt-6">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Owner/Director Information</h4>
+                </div>
+                <div>
+                    <label for="br-owner-name" class="block text-sm font-medium text-gray-700 mb-1 required">Owner/Director's Full Name</label>
+                    <input type="text" id="br-owner-name" name="br-owner-name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Full Name" required>
+                </div>
+                <div>
+                    <label for="br-owner-nid" class="block text-sm font-medium text-gray-700 mb-1 required">Owner/Director's National ID</label>
+                    <input type="text" id="br-owner-nid" name="br-owner-nid" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., 0987654321" required>
+                </div>
+
+                <!-- Document Uploads -->
+                <div class="md:col-span-2 mt-6">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Document Uploads</h4>
+                    <p class="text-sm text-gray-600 mb-4">Please upload clear scans or photos of the required documents.</p>
+                </div>
+                <div>
+                    <label for="br-owner-photo" class="block text-sm font-medium text-gray-700 mb-1 required">Owner's Passport-sized Photo</label>
+                    <input type="file" id="br-owner-photo" name="br-owner-photo" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100" required>
+                </div>
+                <div>
+                    <label for="br-owner-nid-scan" class="block w-full text-sm font-medium text-gray-700 mb-1 required">Owner's National ID Scan</label>
+                    <input type="file" id="br-owner-nid-scan" name="br-owner-nid-scan" accept="image/*,.pdf" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100" required>
+                </div>
+                <div>
+                    <label for="br-business-plan" class="block text-sm font-medium text-gray-700 mb-1">Business Plan (Optional)</label>
+                    <input type="file" id="br-business-plan" name="br-business-plan" accept=".pdf,.doc,.docx" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100">
+                </div>
+
+                <div class="md:col-span-2 text-right mt-8">
+                    <button type="submit" class="inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                        Submit Application
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Payment Page -->
+    <section id="payment-page" class="container mx-auto py-16 px-4 bg-gray-100 rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">Payment Gateway</h3>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+            Please complete your payment to finalize your application.
+        </p>
+
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <div class="mb-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <p class="text-lg font-semibold text-blue-800 mb-2">Service: <span class="font-normal text-gray-700">Selected Service Name</span></p>
+                <p class="text-lg font-semibold text-blue-800 mb-2">Application ID: <span class="font-normal text-gray-700">APP-123456789</span></p>
+                <p class="text-2xl font-bold text-blue-900">Amount Due: <span class="text-green-600">$50.00</span></p>
+            </div>
+
+            <h4 class="text-2xl font-semibold text-gray-900 mb-6 border-b pb-2">Choose Payment Method</h4>
+
+            <!-- Credit Card Payment -->
+            <div class="mb-8 p-6 border border-gray-200 rounded-lg bg-gray-50">
+                <h5 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-7 h-7 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                    Credit Card
+                </h5>
+                <form class="space-y-4">
+                    <div>
+                        <label for="card-number" class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                        <input type="text" id="card-number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="XXXX XXXX XXXX XXXX">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="expiry-date" class="block text-sm font-medium text-gray-700 mb-1">Expiry Date (MM/YY)</label>
+                            <input type="text" id="expiry-date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="MM/YY">
+                        </div>
+                        <div>
+                            <label for="cvv" class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                            <input type="text" id="cvv" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="XXX">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="card-name" class="block text-sm font-medium text-gray-700 mb-1">Name on Card</label>
+                        <input type="text" id="card-name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Full Name">
+                    </div>
+                </form>
+            </div>
+
+            <!-- Mobile Banking Payment -->
+            <div class="mb-8 p-6 border border-gray-200 rounded-lg bg-gray-50">
+                <h5 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-7 h-7 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    Mobile Banking
+                </h5>
+                <p class="text-gray-700 mb-4">Select your mobile banking provider and follow the instructions.</p>
+                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                    <option>Select Provider</option>
+                    <option>bKash</option>
+                    <option>Nagad</option>
+                    <option>Rocket</option>
+                    <option>Upay</option>
+                </select>
+                <p class="text-sm text-gray-500 mt-2">Instructions will appear here after selecting a provider.</p>
+            </div>
+
+            <!-- Online Web Bank Transfer Payment -->
+            <div class="p-6 border border-gray-200 rounded-lg bg-gray-50">
+                <h5 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                    <svg class="w-7 h-7 mr-2 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+                    Online Web Bank Transfer
+                </h5>
+                <p class="text-gray-700 mb-4">You will be redirected to your bank's portal to complete the transfer.</p>
+                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                    <option>Select Bank</option>
+                    <option>Bank A</option>
+                    <option>Bank B</option>
+                    <option>Bank C</option>
+                </select>
+            </div>
+
+            <div class="text-center mt-10">
+                <button type="button" onclick="showSection('user-dashboard')" class="inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300">
+                    Confirm Payment
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Dashboard -->
+    <section id="user-dashboard" class="container mx-auto py-16 px-4 bg-white rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">Your Dashboard</h3>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
+            Welcome, User! Here you can manage your profile, track applications, and view your payment history.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Profile Card -->
+            <div class="lg:col-span-1 bg-blue-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-blue-800 mb-4 border-b pb-2">Personal Profile</h4>
+                <p class="text-gray-700 mb-2"><span class="font-medium">Name:</span> John Doe</p>
+                <p class="text-gray-700 mb-2"><span class="font-medium">Email:</span> john.doe@example.com</p>
+                <p class="text-gray-700 mb-2"><span class="font-medium">National ID:</span> 123-456-7890</p>
+                <p class="text-gray-700 mb-2"><span class="font-medium">Member Since:</span> Jan 1, 2023</p>
+                <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-700 transition duration-300">Edit Profile</button>
+            </div>
+
+            <!-- Submitted Applications -->
+            <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Submitted Applications</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Application ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service Name</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date Submitted</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">APP-001</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">ID & Passport Application</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                        Pending Review
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2025-07-15</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-900 mr-2">View Details</a>
+                                    <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-900 mr-2">Track Progress</a>
+                                    <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-900">Submit Docs</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">APP-002</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Business Registration</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                        Payment Pending
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2025-07-10</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-900 mr-2">View Details</a>
+                                    <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-900 mr-2">Track Progress</a>
+                                    <a href="javascript:void(0);" onclick="showSection('payment-page')" class="text-green-600 hover:text-green-900">Make Payment</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">APP-003</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Birth Certificate</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Approved
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2025-06-20</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-900 mr-2">View Details</a>
+                                    <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-900 mr-2">Track Progress</a>
+                                    <a href="javascript:void(0);" class="text-blue-600 hover:text-blue-900">Download Doc</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Payment History -->
+            <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-md mt-8">
+                <h4 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Payment History</h4>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transaction ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Application ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">TRN-001</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">APP-003</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">$25.00</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2025-06-19</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">TRN-002</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">APP-002</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">$75.00</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2025-07-10</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                        Failed
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Notifications/Messages -->
+            <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-md mt-8">
+                <h4 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Notifications & Messages</h4>
+                <ul class="divide-y divide-gray-200">
+                    <li class="py-3 flex items-center">
+                        <svg class="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9.293 11.293a1 1 0 001.414 0L12 9.414l1.293 1.293a1 1 0 001.414-1.414L13.414 8l1.293-1.293a1 1 0 00-1.414-1.414L12 6.586l-1.293-1.293a1 1 0 00-1.414 1.414L10.586 8l-1.293 1.293a1 1 0 000 1.414z" clip-rule="evenodd"></path></svg>
+                        <p class="text-gray-700">Your ID & Passport Application (APP-001) is now <span class="font-semibold text-yellow-800">Under Review</span>.</p>
+                    </li>
+                    <li class="py-3 flex items-center">
+                        <svg class="w-5 h-5 text-red-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                        <p class="text-gray-700">Payment for Business Registration (APP-002) has <span class="font-semibold text-red-800">Failed</span>. Please try again.</p>
+                    </li>
+                    <li class="py-3 flex items-center">
+                        <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <p class="text-gray-700">Your Birth Certificate (APP-003) is <span class="font-semibold text-green-800">Approved</span> and ready for download.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us / Departments Page -->
+    <section id="about-us" class="container mx-auto py-16 px-4 bg-gray-100 rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">About Our Government</h3>
+        <div class="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed">
+            <p class="mb-6">
+                Our government is committed to serving the public with transparency, efficiency, and integrity. We strive to create a prosperous and equitable society for all citizens through effective governance and innovative public services.
+            </p>
+            <p class="mb-6">
+                Established with the vision of fostering national development and ensuring the well-being of its people, our administration works tirelessly across various sectors. From economic growth to social welfare, environmental protection to technological advancement, every effort is geared towards building a stronger nation.
+            </p>
+            <h4 class="text-2xl font-semibold text-blue-700 mt-10 mb-6 text-center">Our Departments</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <h5 class="font-bold text-xl text-gray-900 mb-2">Ministry of Finance</h5>
+                    <p class="text-gray-600">Manages the national budget, fiscal policy, and economic planning.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <h5 class="font-bold text-xl text-gray-900 mb-2">Ministry of Health</h5>
+                    <p class="text-gray-600">Oversees public health, healthcare services, and medical research.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <h5 class="font-bold text-xl text-gray-900 mb-2">Ministry of Education</h5>
+                    <p class="text-gray-600">Responsible for national education policy, schools, and higher learning.</p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm">
+                    <h5 class="font-bold text-xl text-gray-900 mb-2">Ministry of Interior</h5>
+                    <p class="text-gray-600">Handles public safety, law enforcement, and internal security.</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <button class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105" onclick="alert('This would navigate to a full departments list!')">
+                    View All Departments
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Page -->
+    <section id="contact-us" class="container mx-auto py-16 px-4 bg-white rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">Contact Us</h3>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-2xl mx-auto">
+            We are here to help. Please use the information below to get in touch with the relevant department or fill out our contact form.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <!-- Contact Information -->
+            <div>
+                <h4 class="text-2xl font-semibold text-gray-900 mb-6">General Inquiries</h4>
+                <div class="space-y-6 text-gray-700">
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div>
+                            <p class="font-medium">Address:</p>
+                            <p>123 Government Plaza, Capital City, State 12345</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
+                        <div>
+                            <p class="font-medium">Phone:</p>
+                            <p>(123) 456-7890</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 4v7a2 2 0 002 2h14a2 2 0 002-2v7m-18 0V5a2 2 0 012-2h14a2 2 0 012 2v7"></path></svg>
+                        <div>
+                            <p class="font-medium">Email:</p>
+                            <p>info@gov.org</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <h4 class="text-2xl font-semibold text-gray-900 mb-4">Office Hours</h4>
+                    <p class="text-gray-700">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p class="text-gray-700">Saturday - Sunday: Closed</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                <h4 class="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h4>
+                <form class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" id="subject" name="subject" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Inquiry about...">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="5" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Your message here..."></textarea>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complaint/Suggestion Section -->
+    <section id="complaint-suggestion" class="container mx-auto py-16 px-4 bg-gray-100 rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">Submit a Complaint or Suggestion</h3>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-2xl mx-auto">
+            Your feedback is important to us. Please use the form below to submit any complaints or suggestions you may have.
+        </p>
+
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <form class="space-y-6">
+                <div>
+                    <label for="feedback-type" class="block text-sm font-medium text-gray-700 mb-1">Type of Feedback</label>
+                    <select id="feedback-type" name="feedback-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option value="complaint">Complaint</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="inquiry">General Inquiry</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="feedback-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name (Optional)</label>
+                    <input type="text" id="feedback-name" name="feedback-name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Anonymous or Your Name">
+                </div>
+                <div>
+                    <label for="feedback-email" class="block text-sm font-medium text-gray-700 mb-1">Your Email (Optional)</label>
+                    <input type="email" id="feedback-email" name="feedback-email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="your@email.com">
+                </div>
+                <div>
+                    <label for="feedback-subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                    <input type="text" id="feedback-subject" name="feedback-subject" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Brief subject of your feedback">
+                </div>
+                <div>
+                    <label for="feedback-message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                    <textarea id="feedback-message" name="feedback-message" rows="7" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Please provide details of your complaint or suggestion here."></textarea>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                        Submit Feedback
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="container mx-auto py-16 px-4 bg-gray-100 rounded-lg shadow-md mb-8">
+        <h3 class="text-3xl font-bold text-center mb-12 text-blue-700">Frequently Asked Questions</h3>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-2xl mx-auto">
+            Find quick answers to common questions about our services and policies.
+        </p>
+
+        <div class="max-w-4xl mx-auto space-y-6">
+            <!-- FAQ Item 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-900 hover:text-blue-700 transition duration-300">
+                        How do I apply for a new passport?
+                        <span class="transform transition-transform duration-300 group-open:rotate-180">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 leading-relaxed">
+                        <p>To apply for a new passport, please visit our <a href="javascript:void(0);" onclick="showSection('services-page')" class="text-blue-600 hover:underline">Online Applications</a> section under "For Citizens." You will find detailed instructions, required documents, and the application form there.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-900 hover:text-blue-700 transition duration-300">
+                        Where can I find information on local business regulations?
+                        <span class="transform transition-transform duration-300 group-open:rotate-180">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 leading-relaxed">
+                        <p>Information on local business regulations, permits, and licenses can be found in the <a href="javascript:void(0);" onclick="showSection('services-page')" class="text-blue-600 hover:underline">Business Services</a> section. You can also contact the Ministry of Commerce for specific inquiries.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-900 hover:text-blue-700 transition duration-300">
+                        How can I report a public service issue?
+                        <span class="transform transition-transform duration-300 group-open:rotate-180">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 leading-relaxed">
+                        <p>You can report public service issues through our <a href="javascript:void(0);" onclick="showSection('contact-us')" class="text-blue-600 hover:underline">Contact Us</a> page, or by calling our general inquiry line during office hours.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-gray-900 hover:text-blue-700 transition duration-300">
+                        What are the government's current environmental initiatives?
+                        <span class="transform transition-transform duration-300 group-open:rotate-180">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-gray-700 leading-relaxed">
+                        <p>Details on our current environmental protection initiatives can be found in the <a href="javascript:void(0);" onclick="showSection('about-us')" class="text-blue-600 hover:underline">About Us</a> section, specifically under the Ministry of Environment (if applicable) or within relevant policy documents.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login/Register Section -->
+    <section id="login-register" class="bg-blue-800 text-white py-16 px-4 mb-8">
+        <div class="container mx-auto max-w-md text-center">
+            <h3 class="text-3xl font-bold mb-8">Login or Register for Services</h3>
+            <p class="text-lg mb-8">
+                Access personalized services, track your applications, and manage your profile by logging in or creating an account.
+            </p>
+            <div class="bg-white p-8 rounded-lg shadow-xl text-gray-800">
+                <h4 class="text-2xl font-semibold mb-6 text-blue-700">Login to Your Account</h4>
+                <form class="space-y-4">
+                    <div>
+                        <label for="username" class="sr-only">Username or Email</label>
+                        <input type="text" id="username" name="username" class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Username or Email">
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Password</label>
+                        <input type="password" id="password" name="password" class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Password">
+                    </div>
+                    <button type="submit" class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                        Login
+                    </button>
+                </form>
+                <div class="mt-6 text-sm">
+                    <p class="mb-2">Don't have an account? <a href="javascript:void(0);" class="text-blue-600 hover:underline font-medium">Register Here</a></p>
+                    <p><a href="javascript:void(0);" class="text-blue-600 hover:underline font-medium">Forgot Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Contact Section -->
+    <section id="call-to-action" class="bg-blue-700 text-white py-16 text-center shadow-inner">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold mb-4">Have Questions?</h3>
+            <p class="text-lg mb-8 max-w-xl mx-auto">
+                Our dedicated support team is here to assist you. Reach out for any inquiries or assistance.
+            </p>
+            <a href="javascript:void(0);" onclick="showSection('contact-us')" class="bg-white text-blue-700 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                <div>
+                    <h5 class="font-bold text-gray-100 mb-3">Quick Links</h5>
+                    <ul>
+                        <li><a href="javascript:void(0);" class="hover:text-white transition duration-200">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0);" class="hover:text-white transition duration-200">Terms of Service</a></li>
+                        <li><a href="javascript:void(0);" class="hover:text-white transition duration-200">Accessibility Statement</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-gray-100 mb-3">Connect With Us</h5>
+                    <div class="flex justify-center space-x-4">
+                        <!-- Social Media Icons (placeholders) -->
+                        <a href="javascript:void(0);" class="text-gray-300 hover:text-white transition duration-200">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="javascript:void(0);" class="text-gray-300 hover:text-white transition duration-200">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3c-1.105 0-2 .895-2 2v14c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2V5c0-1.105-.895-2-2-2H5zm11.5 4a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm-5 12a5 5 0 110-10 5 5 0 010 10z" /></svg>
+                        </a>
+                        <a href="javascript:void(0);" class="text-gray-300 hover:text-white transition duration-200">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.163 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.088 2.91.829.092-.643.359-1.088.65-1.338-2.22-.253-4.555-1.119-4.555-4.95 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.097-2.65 0 0 .84-.268 2.75 1.025A9.43 9.43 0 0112 6.8c.85.004 1.701.113 2.504.337 1.909-1.293 2.747-1.025 2.747-1.025.546 1.379.202 2.398.099 2.651.64.698 1.028 1.591 1.028 2.682 0 3.841-2.339 4.681-4.566 4.929.359.307.678.915.678 1.846 0 1.338-.012 2.419-.012 2.747 0 .268.18.579.688.482A10 10 0 0022 12c0-5.523-4.477-10-10-10z" /></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold text-gray-100 mb-3">Address</h5>
+                    <p>123 Government Plaza</p>
+                    <p>Capital City, State 12345</p>
+                    <p>Phone: (123) 456-7890</p>
+                    <p>Email: info@gov.org</p>
+                </div>
+            </div>
+            <p>&copy; 2025 Government Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to show a specific section and hide others
+        function showSection(sectionId) {
+            // Get all section elements
+            const sections = document.querySelectorAll('section');
+
+            // Hide all sections
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                // Scroll to the top of the newly displayed section for a smooth feel
+                window.scrollTo({ top: targetSection.offsetTop, behavior: 'smooth' });
+            }
+        }
+
+        // Initialize: Show the home section when the page loads
+        window.onload = function() {
+            showSection('home');
+        };
+    </script>
+</body>
+</html>
